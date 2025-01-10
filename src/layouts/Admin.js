@@ -1,4 +1,4 @@
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 // components
 
@@ -11,7 +11,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 
 import Brand from "views/admin/Brand";
 import Category from "views/admin/Category";
-import Dashboard from "views/admin/Dashboard.js";
+import Dashboard from "views/admin/Dashboard";
 import Maps from "views/admin/Maps.js";
 import Product from "views/admin/Product";
 import Settings from "views/admin/Settings.js";
@@ -26,16 +26,16 @@ export default function Admin() {
         {/* Header */}
         <HeaderStats />
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
-          <Switch>
-            <Route path="/admin/dashboard" exact component={Dashboard} />
-            <Route path="/admin/maps" exact component={Maps} />
-            <Route path="/admin/settings" exact component={Settings} />
-            <Route path="/admin/tables" exact component={Tables} />
-            <Route path="/admin/brands" exact component={Brand} />
-            <Route path="/admin/categories" exact component={Category} />
-            <Route path="/admin/products" exact component={Product} />
-            <Redirect from="/admin" to="/admin/dashboard" />
-          </Switch>
+          <Routes >
+            <Route path="/" element={<Navigate to="/admin/dashboard" />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/maps" element={<Maps />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/tables" element={<Tables />} />
+            <Route path="/brands" element={<Brand />} />
+            <Route path="/categories" element={<Category />} />
+            <Route path="/products" element={<Product />} />
+          </Routes>
           <FooterAdmin />
         </div>
       </div>

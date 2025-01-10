@@ -1,7 +1,7 @@
 import PatterReact from "assets/img/pattern_react.png";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
@@ -17,11 +17,7 @@ export default function Index() {
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
                 Notus React is Free and Open Source. It does not change any of
                 the CSS from{" "}
-                <a
-                  href="https://tailwindcss.com/?ref=creativetim"
-                  className="text-blueGray-600"
-                  target="_blank"
-                >
+                <a href="/" className="text-blueGray-600">
                   Tailwind CSS
                 </a>
                 . It features multiple HTML elements and it comes with dynamic

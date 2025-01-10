@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
@@ -17,16 +17,16 @@ import Profile from "views/Profile.js";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <Switch>
+    <Routes>
       {/* add routes with layouts */}
-      <Route path="/admin" component={Admin} />
-      <Route path="/auth" component={Auth} />
+      <Route path="/admin/*" element={<Admin />} />
+      <Route path="/auth/*" element={<Auth />} />
       {/* add routes without layouts */}
-      <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
-      <Route path="/" exact component={Index} />
+      <Route path="/landing/*" element={<Landing />} />
+      <Route path="/profile/*" element={<Profile />} />
+      <Route path="/" element={<Index />} />
       {/* add redirect for first page */}
-      <Redirect from="*" to="/" />
-    </Switch>
+      <Route path="*" element={<Index />} />
+    </Routes>
   </BrowserRouter>
 );
