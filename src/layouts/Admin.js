@@ -9,11 +9,14 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 
 // views
 
-import Brand from "views/admin/Brand";
-import Category from "views/admin/Category";
+import AddBrand from "views/admin/Brand/AddBrand";
+import ViewBrands from "views/admin/Brand/ViewBrands";
+import AddCategories from "views/admin/Category/AddCategory";
+import ViewCategories from "views/admin/Category/ViewCategories";
 import Dashboard from "views/admin/Dashboard";
 import Maps from "views/admin/Maps.js";
-import Product from "views/admin/Product";
+import AddProduct from "views/admin/Product/AddProduct";
+import ViewProducts from "views/admin/Product/ViewProducts";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 
@@ -26,15 +29,30 @@ export default function Admin() {
         {/* Header */}
         <HeaderStats />
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
-          <Routes >
+          <Routes>
             <Route path="/" element={<Navigate to="/admin/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/maps" element={<Maps />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/tables" element={<Tables />} />
-            <Route path="/brands" element={<Brand />} />
-            <Route path="/categories" element={<Category />} />
-            <Route path="/products" element={<Product />} />
+            <Route path="/brands/add" element={<AddBrand />} />
+            <Route path="/brands/all" element={<ViewBrands />} />
+            <Route path="/categories/add" element={<AddCategories />} />
+            <Route path="/categories/all" element={<ViewCategories />} />
+            <Route path="/products/add" element={<AddProduct />} />
+            <Route path="/products/all" element={<ViewProducts />} />
+            <Route
+              path="/brands"
+              element={<Navigate to="/admin/brands/all" />}
+            />
+            <Route
+              path="/categories"
+              element={<Navigate to="/admin/categories/all" />}
+            />
+            <Route
+              path="/products"
+              element={<Navigate to="/admin/products/all" />}
+            />
           </Routes>
           <FooterAdmin />
         </div>

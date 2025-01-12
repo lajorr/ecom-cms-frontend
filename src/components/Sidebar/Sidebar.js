@@ -1,7 +1,8 @@
 /*eslint-disable*/
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { adminSidebarRoutes, authSidebarRoutes } from "./sidebarConstants";
+import SideTile from "./SideTile";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
@@ -125,31 +126,3 @@ export default function Sidebar() {
     </>
   );
 }
-
-const SideTile = ({ title, linkTo, icon }) => {
-  const navigate = useNavigate();
-  return (
-    <li className="items-center cursor-pointer">
-      <div
-        className={
-          "text-xs uppercase py-3 font-bold block " +
-          (window.location.href.indexOf(linkTo) !== -1
-            ? "text-lightBlue-500 hover:text-lightBlue-600"
-            : "text-blueGray-700 hover:text-blueGray-500")
-        }
-        onClick={() => navigate(linkTo)}
-      >
-        <i
-          className={
-            icon +
-            " mr-2 text-sm " +
-            (window.location.href.indexOf(linkTo) !== -1
-              ? "opacity-75"
-              : "text-blueGray-300")
-          }
-        ></i>
-        {title}
-      </div>
-    </li>
-  );
-};

@@ -25,13 +25,13 @@ const adminSidebarRoutes = [
     options: [
       {
         id: 4.1,
-        path: "/admin/brands",
+        path: "/admin/brands/add",
         name: "Add Brand",
-        icon: "fas fa-tag ",
+        icon: "fas fa-plus ",
       },
       {
         id: 4.2,
-        path: "/admin/brands",
+        path: "/admin/brands/all",
         name: "All Brands",
         icon: "fas fa-tag ",
       },
@@ -45,13 +45,13 @@ const adminSidebarRoutes = [
     options: [
       {
         id: 4.1,
-        path: "/admin/categories",
+        path: "/admin/categories/add",
         name: "Add categories",
-        icon: "fas fa-tag ",
+        icon: "fas fa-plus ",
       },
       {
         id: 4.2,
-        path: "/admin/categories",
+        path: "/admin/categories/all",
         name: "All categories",
         icon: "fas fa-tag ",
       },
@@ -65,13 +65,13 @@ const adminSidebarRoutes = [
     options: [
       {
         id: 4.1,
-        path: "/admin/products",
+        path: "/admin/products/add",
         name: "Add products",
-        icon: "fas fa-tag ",
+        icon: "fas fa-plus ",
       },
       {
         id: 4.2,
-        path: "/admin/products",
+        path: "/admin/products/all",
         name: "All products",
         icon: "fas fa-tag ",
       },
