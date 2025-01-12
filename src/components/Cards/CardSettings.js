@@ -1,5 +1,3 @@
-import React from "react";
-
 // components
 
 export default function CardSettings() {
@@ -19,7 +17,7 @@ export default function CardSettings() {
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
           <form>
-            <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+            <h6 className="text-blueGray-400 text-sm mt-3  font-bold uppercase">
               User Information
             </h6>
             <div className="flex flex-wrap">
