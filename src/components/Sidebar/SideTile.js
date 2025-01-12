@@ -8,7 +8,7 @@ const SideTile = ({ title, linkTo, icon, options = null }) => {
   const isActive = window.location.href.indexOf(linkTo) !== -1;
 
   return (
-    <li className="items-center">
+    <div className="items-center">
       <div
         className={
           "text-xs uppercase py-3 font-bold" +
@@ -60,6 +60,7 @@ const SideTile = ({ title, linkTo, icon, options = null }) => {
             {options.map((option) => {
               return (
                 <SideTile
+                  key={option.name}
                   title={option.name}
                   linkTo={option.path}
                   icon={option.icon}
@@ -70,7 +71,7 @@ const SideTile = ({ title, linkTo, icon, options = null }) => {
           </div>
         )}
       </div>
-    </li>
+    </div>
   );
 };
 
