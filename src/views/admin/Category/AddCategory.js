@@ -1,16 +1,15 @@
+import { useCategoryContext } from "providers/CategoryProvider";
 import { useState } from "react";
-import { addCategory } from "services/categoryServices";
 
 const AddCategories = () => {
   const [categoryName, setCategoryName] = useState("");
+  const categoryContext = useCategoryContext();
+
   const handleAddNewCategory = async () => {
     if (categoryName === "") {
       return;
     }
-    const data = {
-      name: categoryName,
-    };
-    const result = await addCategory(data);
+    const result = await categoryContext.addNewCategory(categoryName);
     alert(result.msg);
     setCategoryName("");
   };

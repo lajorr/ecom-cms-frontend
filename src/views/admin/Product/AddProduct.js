@@ -1,11 +1,11 @@
 import { productInputFields } from "components/Forms/formConstants";
 import MyInputField from "components/Forms/MyInputField";
+import { useBrandContext } from "providers/BrandProvider";
+import { useCategoryContext } from "providers/CategoryProvider";
 
 const AddProduct = () => {
-  const dummyBrands = [
-    { id: 1, name: "Brand 1" },
-    { id: 2, name: "Brand 2" },
-  ];
+  const allBrands = useBrandContext().brands;
+  const allCategories = useCategoryContext().categories;
 
   return (
     <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -55,8 +55,10 @@ const AddProduct = () => {
                 className=" py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow"
                 style={{ width: "200px" }}
               >
-                {dummyBrands.map((brand) => (
-                  <option>{brand.name}</option>
+                {allBrands.map((brand) => (
+                  <option key={brand._id} value={brand}>
+                    {brand.name}
+                  </option>
                 ))}
               </select>
             </div>
@@ -68,9 +70,11 @@ const AddProduct = () => {
                 className=" py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow "
                 style={{ width: "200px" }}
               >
-                <option>2</option>
-                <option>1asdasdsaasdasdasdasd</option>
-                <option>3</option>
+                {allCategories.map((category) => (
+                  <option key={category._id} value={category}>
+                    {category.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

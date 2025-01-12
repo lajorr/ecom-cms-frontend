@@ -2,7 +2,7 @@ import { addBrand, getBrands } from "services/brandServices";
 
 const { createContext, useContext, useState } = require("react");
 
-export const BrandContext = createContext(null);
+const BrandContext = createContext(null);
 
 const BrandProvider = ({ children }) => {
   const [brands, setBrands] = useState([]);

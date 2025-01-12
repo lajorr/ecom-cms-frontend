@@ -1,17 +1,16 @@
+import { useBrandContext } from "providers/BrandProvider";
 import { useState } from "react";
-import { addBrand } from "services/brandServices";
 
 const AddBrand = () => {
   const [brandName, setBrandName] = useState("");
+
+  const brandCtx = useBrandContext();
   const handleAddNewBrand = async () => {
     console.log(brandName);
     if (brandName === "") {
       return;
     }
-    const data = {
-      name: brandName,
-    };
-    const result = await addBrand(data);
+    const result = await brandCtx.addNewBrand(brandName);
     alert(result.msg);
     setBrandName("");
   };
