@@ -9,6 +9,8 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 
 // views
 
+import { useBrandContext } from "providers/BrandProvider";
+import { useEffect } from "react";
 import AddBrand from "views/admin/Brand/AddBrand";
 import ViewBrands from "views/admin/Brand/ViewBrands";
 import AddCategories from "views/admin/Category/AddCategory";
@@ -21,6 +23,11 @@ import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
 
 export default function Admin() {
+  const brandContext = useBrandContext();
+
+  useEffect(() => {
+    brandContext.getAllBrands();
+  });
   return (
     <>
       <Sidebar />
@@ -28,6 +35,7 @@ export default function Admin() {
         <AdminNavbar />
         {/* Header */}
         <HeaderStats />
+
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Routes>
             <Route path="/" element={<Navigate to="/admin/dashboard" />} />

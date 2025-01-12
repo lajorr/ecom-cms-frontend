@@ -4,8 +4,15 @@ import CardBarChart from "components/Cards/CardBarChart.js";
 import CardLineChart from "components/Cards/CardLineChart.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 import CardSocialTraffic from "components/Cards/CardSocialTraffic.js";
+import { useBrandContext } from "providers/BrandProvider";
+import { useEffect } from "react";
 
 export default function Dashboard() {
+  const brandContext = useBrandContext();
+
+  useEffect(() => {
+    brandContext.getAllBrands();
+  }, []);
   return (
     <>
       <div className="flex flex-wrap">
