@@ -1,3 +1,5 @@
+import { deleteCategoryById } from "services/categoryServices";
+
 const { createContext, useContext, useState } = require("react");
 const { addCategory } = require("services/categoryServices");
 const { getCategories } = require("services/categoryServices");
@@ -21,9 +23,15 @@ const CategoryProvider = ({ children }) => {
     return result;
   };
 
+  const deleteCategory = async (id) => {
+    const result = await deleteCategoryById(id);
+    getAllCategories();
+    return result;
+  };
+
   return (
     <CategoryContext.Provider
-      value={{ getAllCategories, addNewCategory, categories }}
+      value={{ getAllCategories, addNewCategory, deleteCategory, categories }}
     >
       {children}
     </CategoryContext.Provider>

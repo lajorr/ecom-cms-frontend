@@ -1,7 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import { getBrandById } from "services/brandServices";
 import { getCategoryById } from "services/categoryServices";
-import { addProduct, getProducts } from "services/productService";
+import {
+  addProduct,
+  deleteProductById,
+  getProducts,
+} from "services/productService";
 
 const productContext = createContext();
 
@@ -35,9 +39,15 @@ const ProductProvider = ({ children }) => {
     setProducts(products);
   };
 
+  const deleteProduct = async (id) => {
+    const result = await deleteProductById(id);
+    getAllProducts();
+    return result;
+  };
+
   return (
     <productContext.Provider
-      value={{ addNewProduct, getAllProducts, products }}
+      value={{ addNewProduct, getAllProducts, deleteProduct, products }}
     >
       {children}
     </productContext.Provider>

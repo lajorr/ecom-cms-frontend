@@ -1,4 +1,4 @@
-import { addBrand, getBrands } from "services/brandServices";
+import { addBrand, deleteBrandById, getBrands } from "services/brandServices";
 
 const { createContext, useContext, useState } = require("react");
 
@@ -20,8 +20,16 @@ const BrandProvider = ({ children }) => {
     return result;
   };
 
+  const deleteBrand = async (id) => {
+    const result = await deleteBrandById(id);
+    getAllBrands();
+    return result;
+  };
+
   return (
-    <BrandContext.Provider value={{ getAllBrands, addNewBrand, brands }}>
+    <BrandContext.Provider
+      value={{ getAllBrands, addNewBrand, deleteBrand, brands }}
+    >
       {children}
     </BrandContext.Provider>
   );

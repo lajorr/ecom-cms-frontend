@@ -4,9 +4,15 @@ import { useProductContext } from "providers/ProductProvider";
 import { getColumns } from "utils/utilFunctions";
 
 const ViewProducts = () => {
-  const allProducts = useProductContext().products;
-
+  const prodCtx = useProductContext();
+  const allProducts = prodCtx.products;
   const color = "light";
+
+  const handleDeleteProduct = async (id) => {
+    const result = await prodCtx.deleteProduct(id);
+    alert(result.msg);
+  };
+
   return (
     <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 ">
       <div className="rounded-t bg-white mb-0 px-6 py-4 ">
@@ -29,7 +35,11 @@ const ViewProducts = () => {
           </thead>
           <tbody>
             {allProducts.map((product) => (
-              <ItemTile key={product._id} item={product} />
+              <ItemTile
+                key={product._id}
+                item={product}
+                onDeleteItem={() => handleDeleteProduct(product._id)}
+              />
             ))}
           </tbody>
         </table>

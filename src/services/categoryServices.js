@@ -26,3 +26,12 @@ export const addCategory = async (catName) => {
     console.log(err);
   }
 };
+
+export const deleteCategoryById = async (id) => {
+  try {
+    const response = await api().delete(`/categories/${id}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

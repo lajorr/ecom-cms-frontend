@@ -4,12 +4,21 @@ import { useBrandContext } from "providers/BrandProvider";
 import { getColumns } from "utils/utilFunctions";
 
 const ViewBrands = () => {
-  const allBrands = useBrandContext().brands;
+  const brandCtx = useBrandContext();
+  const allBrands = brandCtx.brands;
   const color = "light";
+
+  const handleItemDelete = async (brandId) => {
+    const result = await brandCtx.deleteBrand(brandId);
+    alert(result.msg);
+  };
+
   return (
     <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 ">
-      <div className="rounded-t bg-white mb-0 px-6 py-4 ">
-        <h6 className="text-blueGray-700 text-xl font-bold">View All Brands</h6>
+      <div className="rounded-t bg-white px-6 py-4 ">
+        <h6 className="text-blueGray-700 text-xl font-bold mb-4">
+          View All Brands
+        </h6>
         <table className="w-full table-fixed border-collapse">
           <thead>
             <tr
@@ -26,7 +35,11 @@ const ViewBrands = () => {
           </thead>
           <tbody>
             {allBrands.map((brand) => (
-              <ItemTile key={brand._id} item={brand} />
+              <ItemTile
+                key={brand._id}
+                item={brand}
+                onDeleteItem={() => handleItemDelete(brand._id)}
+              />
             ))}
           </tbody>
         </table>

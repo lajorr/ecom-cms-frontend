@@ -26,3 +26,12 @@ export const addBrand = async (brandName) => {
     console.log(err);
   }
 };
+
+export const deleteBrandById = async (id) => {
+  try {
+    const response = await api().delete(`/brands/${id}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

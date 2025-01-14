@@ -8,6 +8,7 @@ export const getColumns = (allItems) => {
   const columns = keyss.filter(
     (key) => key !== "createdAt" && key !== "updatedAt" && key !== "__v"
   );
+  columns[columns.length] = "";
 
   return columns;
 };

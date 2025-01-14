@@ -1,9 +1,9 @@
-const ItemTile = ({ item }) => {
+const ItemTile = ({ item, onDeleteItem }) => {
   delete item.__v;
   const values = Object.values(item);
   values.splice(10);
   return (
-    <tr>
+    <tr className="">
       {values.map((value, index) => {
         const val =
           value && typeof value === "object"
@@ -13,13 +13,16 @@ const ItemTile = ({ item }) => {
             : "N/A";
 
         return (
-          <td key={index} className="px-6 text-xs p-4 ">
+          <td key={index} className=" px-6 text-xs p-4">
             {String(val)}
           </td>
         );
       })}
-      <td className="relative">
-        <i className="fas fa-ellipsis-v text-lightBlue-600 cursor-pointer"></i>
+      <td className="text-right">
+        <i
+          className="fas fa-times-circle text-lightBlue-600 cursor-pointer"
+          onClick={onDeleteItem}
+        ></i>
       </td>
     </tr>
   );

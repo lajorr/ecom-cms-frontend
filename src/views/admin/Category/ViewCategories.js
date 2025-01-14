@@ -4,7 +4,13 @@ import { useCategoryContext } from "providers/CategoryProvider";
 import { getColumns } from "utils/utilFunctions";
 
 const ViewCategories = () => {
-  const categories = useCategoryContext().categories;
+  const catCtx = useCategoryContext();
+  const categories = catCtx.categories;
+
+  const handleCategoryDelete = async (catId) => {
+    const result = await catCtx.deleteCategory(catId);
+    alert(result.msg);
+  };
 
   const color = "light";
   return (
@@ -29,7 +35,11 @@ const ViewCategories = () => {
           </thead>
           <tbody>
             {categories.map((cat) => (
-              <ItemTile key={cat._id} item={cat} />
+              <ItemTile
+                key={cat._id}
+                item={cat}
+                onDeleteItem={() => handleCategoryDelete(cat._id)}
+              />
             ))}
           </tbody>
         </table>

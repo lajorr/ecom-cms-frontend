@@ -17,3 +17,12 @@ export const addProduct = async (product) => {
     console.log(err);
   }
 };
+
+export const deleteProductById = async (id) => {
+  try {
+    const response = await api().delete(`/products/${id}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
