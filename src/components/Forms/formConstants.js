@@ -5,6 +5,7 @@ const productInputFields = [
     type: "text",
     title: "Product Name",
     placeholder: "Product Name",
+    isRequired: true,
   },
   {
     id: 2,
@@ -12,20 +13,23 @@ const productInputFields = [
     type: "number",
     title: "Price",
     placeholder: "Price",
+    isRequired: true,
   },
   {
     id: 3,
-    name: "salePrice",
+    name: "offer_price",
     type: "number",
-    title: "Sale Price",
+    title: "Sale Price [Optional]",
     placeholder: "Sale Price",
+    isRequired: false,
   },
   {
     id: 4,
-    name: "description",
+    name: "product_details",
     type: "text",
-    title: "Description",
+    title: "Description [Optional]",
     placeholder: "Description",
+    isRequired: false,
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const productInputFields = [
     type: "number",
     title: "Stock",
     placeholder: "Stock",
+    isRequired: true,
   },
 
   {
@@ -41,6 +46,7 @@ const productInputFields = [
     type: "text",
     title: "Product Image",
     placeholder: "https://example.com/image.jpg",
+    isRequired: true,
   },
 ];
 

@@ -11,6 +11,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 
 import { useBrandContext } from "providers/BrandProvider";
 import { useCategoryContext } from "providers/CategoryProvider";
+import { useProductContext } from "providers/ProductProvider";
 import { useEffect } from "react";
 import AddBrand from "views/admin/Brand/AddBrand";
 import ViewBrands from "views/admin/Brand/ViewBrands";
@@ -25,11 +26,13 @@ import Tables from "views/admin/Tables.js";
 
 export default function Admin() {
   const brandContext = useBrandContext();
-  const CategoryContext = useCategoryContext();
+  const categoryContext = useCategoryContext();
+  const productContext = useProductContext();
 
   useEffect(() => {
     brandContext.getAllBrands();
-    CategoryContext.getAllCategories();
+    categoryContext.getAllCategories();
+    productContext.getAllProducts();
   });
   return (
     <>
