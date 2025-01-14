@@ -9,6 +9,15 @@ export const getCategories = async () => {
   }
 };
 
+export const getCategoryById = async (id) => {
+  try {
+    const response = await api().get(`/categories/${id}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const addCategory = async (catName) => {
   try {
     const response = await api().post("/categories", catName);

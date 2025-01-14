@@ -9,6 +9,15 @@ export const getBrands = async () => {
   }
 };
 
+export const getBrandById = async (id) => {
+  try {
+    const response = await api().get(`/brands/${id}`);
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const addBrand = async (brandName) => {
   try {
     const response = await api().post("/brands", brandName);

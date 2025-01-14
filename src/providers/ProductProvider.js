@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+import { getBrandById } from "services/brandServices";
+import { getCategoryById } from "services/categoryServices";
 import { addProduct, getProducts } from "services/productService";
 
 const productContext = createContext();
@@ -11,10 +13,26 @@ const ProductProvider = ({ children }) => {
     return result;
   };
 
+  const getBrand = async (id) => {
+    const result = await getBrandById(id);
+    return result;
+  };
+  const getCategory = async (id) => {
+    const result = await getCategoryById(id);
+    return result;
+  };
+
   const getAllProducts = async () => {
     const result = await getProducts();
-    setProducts(result);
-    return result;
+    const products = await Promise.all(
+      result.map(async (product) => {
+        const brand = await getBrand(product.brand);
+        const cat = await getCategory(product.category);
+        return { ...product, brand: brand, category: cat };
+      })
+    );
+    console.log(products);
+    setProducts(products);
   };
 
   return (
