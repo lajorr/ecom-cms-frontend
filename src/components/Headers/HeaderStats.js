@@ -1,6 +1,4 @@
-
 // components
-
 
 export default function HeaderStats() {
   return (
@@ -61,7 +59,6 @@ export default function HeaderStats() {
               </div>
             </div> */}
           </div>
-          
         </div>
       </div>
     </>

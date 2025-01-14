@@ -1,16 +1,18 @@
-const ItemTile = () => {
-  const color = "light";
+const ItemTile = ({ item }) => {
+  delete item.__v;
+  const values = Object.values(item);
+  values.splice(10);
   return (
     <tr>
-      <td className="px-6  text-xs whitespace-nowrap p-4 font-bold">12334</td>
-      <td className="border-t-0 px-6 items-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-        Nike Air max
+      {values.map((value) => (
+        <td key={value} className="px-6 text-xs p-4 ">
+          {String(value)}
+        </td>
+      ))}
+      <td className="relative">
+        <i className="fas fa-ellipsis-v text-lightBlue-600 cursor-pointer"></i>
       </td>
-      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-        12
-      </td>
-
-      <th
+      {/* <th
         className={
           "px-6   py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-right" +
           (color === "light"
@@ -24,7 +26,7 @@ const ItemTile = () => {
         <button className="bg-red-500 text-white px-4 py-2 rounded">
           Delete
         </button>
-      </th>
+      </th> */}
     </tr>
   );
 };

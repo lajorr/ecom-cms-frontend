@@ -33,7 +33,7 @@ export default function Admin() {
     brandContext.getAllBrands();
     categoryContext.getAllCategories();
     productContext.getAllProducts();
-  });
+  }, []);
   return (
     <>
       <Sidebar />

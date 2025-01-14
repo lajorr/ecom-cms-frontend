@@ -6,8 +6,8 @@ const productContext = createContext();
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const addNewProduct = async (data) => {
-    setProducts((prev) => [...prev, result]);
     const result = await addProduct(data);
+    getAllProducts();
     return result;
   };
 

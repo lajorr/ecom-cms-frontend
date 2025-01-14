@@ -16,8 +16,8 @@ const CategoryProvider = ({ children }) => {
     const data = {
       name: catName,
     };
-    setCategories((prev) => [...prev, data]);
     const result = await addCategory(data);
+    getAllCategories();
     return result;
   };
 

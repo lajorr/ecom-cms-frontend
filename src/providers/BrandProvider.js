@@ -15,8 +15,8 @@ const BrandProvider = ({ children }) => {
     const data = {
       name: brandName,
     };
-    setBrands((prev) => [...prev, data]);
     const result = await addBrand(data);
+    getAllBrands();
     return result;
   };
 
