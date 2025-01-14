@@ -1,8 +1,12 @@
 import { api } from "utils/api";
 
 export const getBrands = async () => {
-  const response = await api().get("/brands");
-  return response.data;
+  try {
+    const response = await api().get("/brands");
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const addBrand = async (brandName) => {

@@ -1,8 +1,12 @@
 import { api } from "utils/api";
 
 export const getCategories = async () => {
-  const response = await api().get("/categories");
-  return response.data;
+  try {
+    const response = await api().get("/categories");
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const addCategory = async (catName) => {
